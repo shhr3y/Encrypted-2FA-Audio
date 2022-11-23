@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>590010512792-blo8ljpavj9hr0kej2k0r6csij8bb78r.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.590010512792-blo8ljpavj9hr0kej2k0r6csij8bb78r</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCMO05a5aCgmSJQCL3hfTQqgsQPjBU8Yvo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>590010512792</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.shrey.Audio2FA</string>
+	<key>PROJECT_ID</key>
+	<string>audio2fa</string>
+	<key>STORAGE_BUCKET</key>
+	<string>audio2fa.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:590010512792:ios:635b492f9e9d40cf6267ed</string>
+</dict>
+</plist>

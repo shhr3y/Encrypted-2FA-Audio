@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		350C551D29090B1E00E671E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C551C29090B1E00E671E5 /* AppDelegate.swift */; };
+		350C551F29090B1F00E671E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C551E29090B1F00E671E5 /* SceneDelegate.swift */; };
+		350C552129090B1F00E671E5 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C552029090B1F00E671E5 /* HomeController.swift */; };
+		350C552429090B1F00E671E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350C552229090B1F00E671E5 /* Main.storyboard */; };
+		350C552629090B2100E671E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 350C552529090B2100E671E5 /* Assets.xcassets */; };
+		350C552929090B2100E671E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350C552729090B2100E671E5 /* LaunchScreen.storyboard */; };
+		350C554129090C7000E671E5 /* TextToAudioWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C554029090C7000E671E5 /* TextToAudioWrapper.swift */; };
+		350C554E29090FD600E671E5 /* TextToAudioSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 350C554D29090FD600E671E5 /* TextToAudioSDK.m */; };
+		350C55522909119200E671E5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C55512909119200E671E5 /* Extensions.swift */; };
+		350C555529091B2000E671E5 /* ggwave in Frameworks */ = {isa = PBXBuildFile; productRef = 350C555429091B2000E671E5 /* ggwave */; };
+		35A232A7292C22BB00D241C2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232A6292C22BB00D241C2 /* FirebaseAuth */; };
+		35A232A9292C22BB00D241C2 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232A8292C22BB00D241C2 /* FirebaseDatabaseSwift */; };
+		35A232AB292C22BB00D241C2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232AA292C22BB00D241C2 /* FirebaseMessaging */; };
+		35A232AD292C22BB00D241C2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232AC292C22BB00D241C2 /* FirebaseStorage */; };
+		35A232AF292C22F800D241C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35A232AE292C22F600D241C2 /* GoogleService-Info.plist */; };
+		35A232B1292C236400D241C2 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A232B0292C236400D241C2 /* FirebaseService.swift */; };
+		35A232B3292C245E00D241C2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A232B2292C245E00D241C2 /* LoginController.swift */; };
+		35A232B5292C269A00D241C2 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A232B4292C269A00D241C2 /* RegistrationController.swift */; };
+		35A232B7292C2DE000D241C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A232B6292C2DE000D241C2 /* User.swift */; };
+		35A232C4292C340600D241C2 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A232C3292C340600D241C2 /* SettingController.swift */; };
+		35A232C8292D593900D241C2 /* UserInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A232C7292D593900D241C2 /* UserInfoHeader.swift */; };
+		35A232CB292D7D1B00D241C2 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A232CA292D7D1A00D241C2 /* Crypto.swift */; };
+		35A232D1292D86D400D241C2 /* AESCryptable in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232D0292D86D400D241C2 /* AESCryptable */; };
+		35A232D4292D9C8100D241C2 /* RNCryptor in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232D3292D9C8100D241C2 /* RNCryptor */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		350C551929090B1E00E671E5 /* Audio2FA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Audio2FA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		350C551C29090B1E00E671E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		350C551E29090B1F00E671E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		350C552029090B1F00E671E5 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		350C552329090B1F00E671E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		350C552529090B2100E671E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		350C552829090B2100E671E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		350C552A29090B2100E671E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		350C554029090C7000E671E5 /* TextToAudioWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToAudioWrapper.swift; sourceTree = "<group>"; };
+		350C554D29090FD600E671E5 /* TextToAudioSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextToAudioSDK.m; sourceTree = "<group>"; };
+		350C554F2909101300E671E5 /* TextToAudioSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextToAudioSDK.h; sourceTree = "<group>"; };
+		350C55502909104100E671E5 /* Audio2FA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Audio2FA-Bridging-Header.h"; sourceTree = "<group>"; };
+		350C55512909119200E671E5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		35A232AE292C22F600D241C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		35A232B0292C236400D241C2 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		35A232B2292C245E00D241C2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		35A232B4292C269A00D241C2 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		35A232B6292C2DE000D241C2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		35A232C3292C340600D241C2 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		35A232C7292D593900D241C2 /* UserInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeader.swift; sourceTree = "<group>"; };
+		35A232CA292D7D1A00D241C2 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		350C551629090B1E00E671E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35A232D4292D9C8100D241C2 /* RNCryptor in Frameworks */,
+				35A232AB292C22BB00D241C2 /* FirebaseMessaging in Frameworks */,
+				35A232A9292C22BB00D241C2 /* FirebaseDatabaseSwift in Frameworks */,
+				350C555529091B2000E671E5 /* ggwave in Frameworks */,
+				35A232D1292D86D400D241C2 /* AESCryptable in Frameworks */,
+				35A232AD292C22BB00D241C2 /* FirebaseStorage in Frameworks */,
+				35A232A7292C22BB00D241C2 /* FirebaseAuth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		350C551029090B1E00E671E5 = {
+			isa = PBXGroup;
+			children = (
+				350C551B29090B1E00E671E5 /* Audio2FA */,
+				350C551A29090B1E00E671E5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		350C551A29090B1E00E671E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				350C551929090B1E00E671E5 /* Audio2FA.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		350C551B29090B1E00E671E5 /* Audio2FA */ = {
+			isa = PBXGroup;
+			children = (
+				350C551C29090B1E00E671E5 /* AppDelegate.swift */,
+				350C551E29090B1F00E671E5 /* SceneDelegate.swift */,
+				35A232CA292D7D1A00D241C2 /* Crypto.swift */,
+				35A232C9292D7D0600D241C2 /* View */,
+				35A232B8292C2FA100D241C2 /* Controller */,
+				35A232B9292C2FAF00D241C2 /* Service */,
+				35A232BA292C2FBC00D241C2 /* Model */,
+				350C55512909119200E671E5 /* Extensions.swift */,
+				350C554029090C7000E671E5 /* TextToAudioWrapper.swift */,
+				350C55502909104100E671E5 /* Audio2FA-Bridging-Header.h */,
+				350C554F2909101300E671E5 /* TextToAudioSDK.h */,
+				350C554D29090FD600E671E5 /* TextToAudioSDK.m */,
+				350C552229090B1F00E671E5 /* Main.storyboard */,
+				350C552529090B2100E671E5 /* Assets.xcassets */,
+				350C552729090B2100E671E5 /* LaunchScreen.storyboard */,
+				350C552A29090B2100E671E5 /* Info.plist */,
+				35A232AE292C22F600D241C2 /* GoogleService-Info.plist */,
+			);
+			path = Audio2FA;
+			sourceTree = "<group>";
+		};
+		35A232B8292C2FA100D241C2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				350C552029090B1F00E671E5 /* HomeController.swift */,
+				35A232C3292C340600D241C2 /* SettingController.swift */,
+				35A232B2292C245E00D241C2 /* LoginController.swift */,
+				35A232B4292C269A00D241C2 /* RegistrationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		35A232B9292C2FAF00D241C2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				35A232B0292C236400D241C2 /* FirebaseService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		35A232BA292C2FBC00D241C2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35A232B6292C2DE000D241C2 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		35A232C9292D7D0600D241C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				35A232C7292D593900D241C2 /* UserInfoHeader.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		350C551829090B1E00E671E5 /* Audio2FA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 350C552D29090B2100E671E5 /* Build configuration list for PBXNativeTarget "Audio2FA" */;
+			buildPhases = (
+				350C551529090B1E00E671E5 /* Sources */,
+				350C551629090B1E00E671E5 /* Frameworks */,
+				350C551729090B1E00E671E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Audio2FA;
+			packageProductDependencies = (
+				350C555429091B2000E671E5 /* ggwave */,
+				35A232A6292C22BB00D241C2 /* FirebaseAuth */,
+				35A232A8292C22BB00D241C2 /* FirebaseDatabaseSwift */,
+				35A232AA292C22BB00D241C2 /* FirebaseMessaging */,
+				35A232AC292C22BB00D241C2 /* FirebaseStorage */,
+				35A232D0292D86D400D241C2 /* AESCryptable */,
+				35A232D3292D9C8100D241C2 /* RNCryptor */,
+			);
+			productName = Audio2FA;
+			productReference = 350C551929090B1E00E671E5 /* Audio2FA.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		350C551129090B1E00E671E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					350C551829090B1E00E671E5 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = 350C551429090B1E00E671E5 /* Build configuration list for PBXProject "Audio2FA" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 350C551029090B1E00E671E5;
+			packageReferences = (
+				350C555329091B2000E671E5 /* XCRemoteSwiftPackageReference "ggwave-spm" */,
+				35A232A5292C22BB00D241C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				35A232CC292D82BB00D241C2 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				35A232CF292D86D400D241C2 /* XCRemoteSwiftPackageReference "aescryptable" */,
+				35A232D2292D9C8100D241C2 /* XCRemoteSwiftPackageReference "RNCryptor" */,
+			);
+			productRefGroup = 350C551A29090B1E00E671E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				350C551829090B1E00E671E5 /* Audio2FA */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		350C551729090B1E00E671E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				350C552929090B2100E671E5 /* LaunchScreen.storyboard in Resources */,
+				35A232AF292C22F800D241C2 /* GoogleService-Info.plist in Resources */,
+				350C552629090B2100E671E5 /* Assets.xcassets in Resources */,
+				350C552429090B1F00E671E5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		350C551529090B1E00E671E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				350C552129090B1F00E671E5 /* HomeController.swift in Sources */,
+				35A232B5292C269A00D241C2 /* RegistrationController.swift in Sources */,
+				35A232B1292C236400D241C2 /* FirebaseService.swift in Sources */,
+				350C551D29090B1E00E671E5 /* AppDelegate.swift in Sources */,
+				35A232C4292C340600D241C2 /* SettingController.swift in Sources */,
+				350C554129090C7000E671E5 /* TextToAudioWrapper.swift in Sources */,
+				350C55522909119200E671E5 /* Extensions.swift in Sources */,
+				35A232C8292D593900D241C2 /* UserInfoHeader.swift in Sources */,
+				35A232B3292C245E00D241C2 /* LoginController.swift in Sources */,
+				35A232CB292D7D1B00D241C2 /* Crypto.swift in Sources */,
+				350C554E29090FD600E671E5 /* TextToAudioSDK.m in Sources */,
+				35A232B7292C2DE000D241C2 /* User.swift in Sources */,
+				350C551F29090B1F00E671E5 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		350C552229090B1F00E671E5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				350C552329090B1F00E671E5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		350C552729090B2100E671E5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				350C552829090B2100E671E5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		350C552B29090B2100E671E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shrey/Documents/classes/CS599/Audio2FA/Audio2FA/Audio2FA-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		350C552C29090B2100E671E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shrey/Documents/classes/CS599/Audio2FA/Audio2FA/Audio2FA-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		350C552E29090B2100E671E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8M3X8G3538;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Audio2FA/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shrey.Audio2FA;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shrey/Documents/classes/CS599/Audio2FA/Audio2FA/Audio2FA-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		350C552F29090B2100E671E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8M3X8G3538;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Audio2FA/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shrey.Audio2FA;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shrey/Documents/classes/CS599/Audio2FA/Audio2FA/Audio2FA-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		350C551429090B1E00E671E5 /* Build configuration list for PBXProject "Audio2FA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				350C552B29090B2100E671E5 /* Debug */,
+				350C552C29090B2100E671E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		350C552D29090B2100E671E5 /* Build configuration list for PBXNativeTarget "Audio2FA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				350C552E29090B2100E671E5 /* Debug */,
+				350C552F29090B2100E671E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		350C555329091B2000E671E5 /* XCRemoteSwiftPackageReference "ggwave-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ggerganov/ggwave-spm";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		35A232A5292C22BB00D241C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		35A232CC292D82BB00D241C2 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		35A232CF292D86D400D241C2 /* XCRemoteSwiftPackageReference "aescryptable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/backslash-f/aescryptable";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		35A232D2292D9C8100D241C2 /* XCRemoteSwiftPackageReference "RNCryptor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RNCryptor/RNCryptor.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		350C555429091B2000E671E5 /* ggwave */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 350C555329091B2000E671E5 /* XCRemoteSwiftPackageReference "ggwave-spm" */;
+			productName = ggwave;
+		};
+		35A232A6292C22BB00D241C2 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35A232A5292C22BB00D241C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		35A232A8292C22BB00D241C2 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35A232A5292C22BB00D241C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		35A232AA292C22BB00D241C2 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35A232A5292C22BB00D241C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		35A232AC292C22BB00D241C2 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35A232A5292C22BB00D241C2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		35A232D0292D86D400D241C2 /* AESCryptable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35A232CF292D86D400D241C2 /* XCRemoteSwiftPackageReference "aescryptable" */;
+			productName = AESCryptable;
+		};
+		35A232D3292D9C8100D241C2 /* RNCryptor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35A232D2292D9C8100D241C2 /* XCRemoteSwiftPackageReference "RNCryptor" */;
+			productName = RNCryptor;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 350C551129090B1E00E671E5 /* Project object */;
+}
