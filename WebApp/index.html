@@ -12,7 +12,6 @@
 
             <textarea name="textarea" id="rxData" style="width:300px;height:100px;" disabled></textarea><br>
 
-            <button id="captureStart">Start Listening</button>
             <button id="captureStop" hidden>Stop capturing</button>
 
             <br><br>
@@ -23,14 +22,9 @@
               <h2 class="form-signin-heading">Please login</h2>
               <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
               <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
-              <label class="checkbox">
-                <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-              </label>
               <button class="btn btn-lg btn-primary btn-block" id="login-button" type="submit">Login</button>   
             </form>
           </div>
-
-        <script type="text/javascript" src="/frontend/src/Login.js"></script>
 
         <script type="text/javascript" src="ggwave.js"></script>
         <script type='text/javascript'>
@@ -53,7 +47,7 @@
 
             var txData = document.getElementById("txData");
             var rxData = document.getElementById("rxData");
-            var captureStart = document.getElementById("captureStart");
+            var captureStart = document.getElementById("login-button");
             var captureStop = document.getElementById("captureStop");
 
             // helper function
@@ -124,7 +118,6 @@
                 });
 
                 rxData.value = 'Listening ...';
-                captureStart.hidden = true;
                 captureStop.hidden = false;
             });
 
