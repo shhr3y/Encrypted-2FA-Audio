@@ -31,6 +31,7 @@
 		35A232CB292D7D1B00D241C2 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A232CA292D7D1A00D241C2 /* Crypto.swift */; };
 		35A232D1292D86D400D241C2 /* AESCryptable in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232D0292D86D400D241C2 /* AESCryptable */; };
 		35A232D4292D9C8100D241C2 /* RNCryptor in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232D3292D9C8100D241C2 /* RNCryptor */; };
+		35B39E39292EEE0F0017D4E6 /* CryptLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B39E38292EEE0F0017D4E6 /* CryptLib.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		35A232C3292C340600D241C2 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		35A232C7292D593900D241C2 /* UserInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeader.swift; sourceTree = "<group>"; };
 		35A232CA292D7D1A00D241C2 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		35B39E37292EEDF80017D4E6 /* CryptLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryptLib.h; sourceTree = "<group>"; };
+		35B39E38292EEE0F0017D4E6 /* CryptLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryptLib.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 				350C55502909104100E671E5 /* Audio2FA-Bridging-Header.h */,
 				350C554F2909101300E671E5 /* TextToAudioSDK.h */,
 				350C554D29090FD600E671E5 /* TextToAudioSDK.m */,
+				35B39E37292EEDF80017D4E6 /* CryptLib.h */,
+				35B39E38292EEE0F0017D4E6 /* CryptLib.m */,
 				350C552229090B1F00E671E5 /* Main.storyboard */,
 				350C552529090B2100E671E5 /* Assets.xcassets */,
 				350C552729090B2100E671E5 /* LaunchScreen.storyboard */,
@@ -244,6 +249,7 @@
 				350C551D29090B1E00E671E5 /* AppDelegate.swift in Sources */,
 				35A232C4292C340600D241C2 /* SettingController.swift in Sources */,
 				350C554129090C7000E671E5 /* TextToAudioWrapper.swift in Sources */,
+				35B39E39292EEE0F0017D4E6 /* CryptLib.m in Sources */,
 				350C55522909119200E671E5 /* Extensions.swift in Sources */,
 				35A232C8292D593900D241C2 /* UserInfoHeader.swift in Sources */,
 				35A232B3292C245E00D241C2 /* LoginController.swift in Sources */,
@@ -332,7 +338,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shrey/Documents/classes/CS599/Audio2FA/Audio2FA/Audio2FA-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shrey/Documents/classes/CS599/Audio2FA/iOS/Audio2FA/Audio2FA-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -386,7 +392,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shrey/Documents/classes/CS599/Audio2FA/Audio2FA/Audio2FA-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shrey/Documents/classes/CS599/Audio2FA/iOS/Audio2FA/Audio2FA-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -415,7 +421,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shrey.Audio2FA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shrey/Documents/classes/CS599/Audio2FA/Audio2FA/Audio2FA-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shrey/Documents/classes/CS599/Audio2FA/iOS/Audio2FA/Audio2FA-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -444,7 +450,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shrey.Audio2FA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shrey/Documents/classes/CS599/Audio2FA/Audio2FA/Audio2FA-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/shrey/Documents/classes/CS599/Audio2FA/iOS/Audio2FA/Audio2FA-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

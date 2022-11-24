@@ -25,30 +25,37 @@ protocol TextToAudioWrapperDelegate
     
     private override init() {
         super.init()
-        
-        print("Initializer called .... ")
+
         textToAudioObj = TextToAudioSDK()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(notification:)), name: Notification.Name("TextToAudioSdkNotificationObserver"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveMessage(notification:)), name: Notification.Name("TextToAudioSdkReceivedMessage"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didUpdateProgress(notification:)), name: Notification.Name("TextToAudioSdkPlayingProgress"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinishSending(notification:)), name: Notification.Name("TextToAudioSdkFinishedSending"), object: nil)
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name("TextToAudioSdkNotificationObserver"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("TextToAudioSdkReceivedMessage"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("TextToAudioSdkPlayingProgress"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("TextToAudioSdkFinishedSending"), object: nil)
     }
     
-    @objc func notificationReceived(notification: Notification) {
+    @objc func didUpdateProgress(notification: Notification) {
         if let userInfo = notification.userInfo as? [String: Any] {
-            let infoType = userInfo["sdk_title"] as! String
+            let infoType = userInfo["progress"] as? String ?? ""
             print("MES: \(infoType)")
-            
-            if let sdkMessage = userInfo["string_message"] as? String
-            {
+        }
+    }
+    
+    @objc func didReceiveMessage(notification: Notification) {
+        if let userInfo = notification.userInfo as? [String: Any] {
+            if let sdkMessage = userInfo["string_message"] as? String {
                 self.delegate?.messageDidReceive(sdkMessage)
             }
-            else {
-                delegate?.messageDidSend()
-            }
         }
+    }
+   
+    @objc func didFinishSending(notification: Notification) {
+        self.delegate?.messageDidSend()
     }
     
     func broadCastText(_ string: String) {

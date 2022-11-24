@@ -174,11 +174,11 @@ void AudioOutputCallback(void * inUserData,
         const char * payload = message;
         const int len = (int) strlen(payload);
         
-        const int n = ggwave_encode(stateOut.ggwaveId, payload, len, GGWAVE_PROTOCOL_ULTRASOUND_FASTEST, 10, NULL, 1);
+        const int n = ggwave_encode(stateOut.ggwaveId, payload, len, GGWAVE_PROTOCOL_AUDIBLE_FASTEST, 10, NULL, 1);
         
         stateOut.waveform = [NSMutableData dataWithLength:sizeof(char)*n];
         
-        const int ret = ggwave_encode(stateOut.ggwaveId, payload, len, GGWAVE_PROTOCOL_ULTRASOUND_FASTEST, 10, [stateOut.waveform mutableBytes], 0);
+        const int ret = ggwave_encode(stateOut.ggwaveId, payload, len, GGWAVE_PROTOCOL_AUDIBLE_FASTEST, 10, [stateOut.waveform mutableBytes], 0);
         
         if (ret > n) {
             printf("failed to encode the message '%s', n = %d, ret = %d\n", payload, n, ret);
@@ -209,9 +209,6 @@ void AudioOutputCallback(void * inUserData,
         }
         
         status = AudioQueueStart(stateOut.queue, NULL);
-        if (status == 0) {
-            //_labelStatusOut.text = @"Status: Playing audio";
-        }
     }
     
     if (status != 0) {
@@ -246,12 +243,9 @@ void AudioInputCallback(void * inUserData,
         NSLog(@"Data received is: %s", decoded);
         NSString *str = [NSString stringWithFormat:@"%s", decoded];
         
-        NSDictionary *dict = @{ @"sdk_title" : @"Data Received successfully",
-                                @"string_message" : str
-                                
-        };
+        NSDictionary *dict = @{ @"string_message" : str };
         [[NSNotificationCenter defaultCenter]
-         postNotificationName:@"TextToAudioSdkNotificationObserver" object:nil userInfo:dict];
+         postNotificationName:@"TextToAudioSdkReceivedMessage" object:nil userInfo:dict];
         
     }
     
@@ -271,8 +265,16 @@ void AudioOutputCallback(void * inUserData,
     
     int nRemainingBytes = stateOut->totalBytes - stateOut->offset;
     
+    int completedBytes = stateOut->totalBytes - nRemainingBytes;
+    float percentageCompleted = (float)(completedBytes)/(stateOut->totalBytes);
     // check if there is any audio left to play
     if (nRemainingBytes > 0) {
+        
+        NSString *str = [NSString stringWithFormat:@"%f", percentageCompleted];
+        NSDictionary *dict = @{ @"progress": str};
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"TextToAudioSdkPlayingProgress" object:nil userInfo:dict];
+        
         int nBytesToPush = MIN(nRemainingBytes, NUM_BYTES_PER_BUFFER);
         
         memcpy(outBuffer->mAudioData, [stateOut->waveform mutableBytes] + stateOut->offset, nBytesToPush);
@@ -292,7 +294,7 @@ void AudioOutputCallback(void * inUserData,
             
             NSDictionary *dict = @{ @"sdk_title" : @"Sound transfered successfully"};
             [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"TextToAudioSdkNotificationObserver" object:nil userInfo:dict];
+             postNotificationName:@"TextToAudioSdkFinishedSending" object:nil userInfo:dict];
             
             stateOut->isPlaying = false;
         }

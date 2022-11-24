@@ -13,6 +13,8 @@
 
 #define NUM_BUFFERS 3
 
+@class TextToAudioSDK;
+
 typedef struct
 {
     int ggwaveId;
@@ -36,6 +38,11 @@ typedef struct
 } StateOut;
 
 
+@protocol TextToAudioSDKDelegate <NSObject>
+- (void)textToAudio: (TextToAudioSDK *)player didUpdatePlayingProgress: (float)progress;
+- (void)textToAudio: (TextToAudioSDK *)player didUpdatePlayingStatus: (bool)playing;
+@end
+
 @interface TextToAudioSDK : NSObject
 {
     StateInp stateInp;
@@ -47,6 +54,6 @@ typedef struct
 - (void) stopCapturing;
 - (void)startCapture;
 
-
+@property (weak, nonatomic) id <TextToAudioSDKDelegate> delegate;
 @end
 

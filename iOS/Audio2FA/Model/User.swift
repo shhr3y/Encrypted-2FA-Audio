@@ -29,8 +29,9 @@ struct User {
         let seconds = calendar.component(.second, from: date)
         
         let currentSecond = Int(date.timeIntervalSince1970) - seconds
-        let keyIndex = currentSecond%(self.keys.count)
-        print("KEY INDEX: \(keyIndex)")
+        
+        let keyIndex = currentSecond % (self.keys.count)
+        print("DEBUG:- KEY INDEX: \(keyIndex) | key: \(keys[keyIndex])")
         
         return keys[keyIndex]
     }

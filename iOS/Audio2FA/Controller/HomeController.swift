@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AESCryptable
 
 enum ActionButtonConfiguration {
     case showMenu
@@ -41,6 +40,18 @@ class HomeController: UIViewController {
         return button
     } ()
     
+    private lazy var authenticateButton: UIView = {
+        let view = UIView()
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(sendMessage)))
+        view.backgroundColor = .random
+        
+        view.setDimensions(height: self.view.frame.width/2, width: self.view.frame.width/2)
+        view.layer.cornerRadius = self.view.frame.width/4
+        
+        return view
+    } ()
+    
     private let actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "baseline_menu_black_36dp").withRenderingMode(.alwaysTemplate), for: .normal)
@@ -62,22 +73,16 @@ class HomeController: UIViewController {
     }
     
     @objc func sendMessage() {
-        do {
-            guard let user = self.user else { return }
+        guard let user = self.user else { return }
+        guard let encryptedData = CryptLib().encryptPlainTextRandomIV(withPlainText: user.uid, key: user.getEncryptionKey()) else { return }
 
-            let aes = try AES(keyString: user.getEncryptionKey())
-            let encryptedData = try aes.encrypt(user.uid)
-
-            TextToAudioWrapper.shared.broadCastText(encryptedData.base64EncodedString())
-        } catch {
-            print("Error Ocurred in Encryption: \(error.localizedDescription)")
-        }
+        TextToAudioWrapper.shared.broadCastText(encryptedData)
     }
     
     @objc func actionButtonPressed() {
         let sheet = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
         
-        sheet.addAction(UIAlertAction(title: "My Settings", style: .default) { action in
+        sheet.addAction(UIAlertAction(title: "Settings", style: .default) { action in
             self.didTapSettings()
         })
         
@@ -92,9 +97,9 @@ class HomeController: UIViewController {
     
 //    MARK: - Helper Functions
     func configureUI() {
-        view.addSubview(sendMessageButton)
-        sendMessageButton.centerX(inView: self.view)
-        sendMessageButton.centerY(inView: self.view)
+        view.addSubview(authenticateButton)
+        authenticateButton.centerX(inView: self.view)
+        authenticateButton.centerY(inView: self.view)
         
         view.addSubview(actionButton)
         actionButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, paddingTop: 0, paddingLeft: 25.5)
@@ -168,13 +173,5 @@ extension HomeController: TextToAudioWrapperDelegate {
 extension HomeController: SettingsControllerDelegate{
     func updateUser(_ controller: SettingsController) {
         self.user = controller.user
-    }
-}
-
-
-
-extension Data {
-    var hexString: String {
-        return map { String(format: "%02hhx", $0) }.joined()
     }
 }

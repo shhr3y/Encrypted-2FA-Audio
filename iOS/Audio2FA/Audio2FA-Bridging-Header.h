@@ -6,3 +6,4 @@
 //
 
 #import "TextToAudioSDK.h"
+#import "CryptLib.h"
