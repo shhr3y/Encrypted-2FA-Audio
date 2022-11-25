@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en-us">
+
+<body>
+    <div id="main-text"></div>
+    <button id="captureStart">Start capturing</button>
+    <script type="text/javascript" src="ggwave.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
+    <script type="text/javascript" src="cryptLib.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getDatabase, ref, onValue, get, child } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBcb-upLoqTdFfRUL5EGfsUMHQOt3BQ3oQ",
+            authDomain: "audio2fa.firebaseapp.com",
+            databaseURL: "https://audio2fa-default-rtdb.firebaseio.com",
+            projectId: "audio2fa",
+            storageBucket: "audio2fa.appspot.com",
+            messagingSenderId: "590010512792",
+            appId: "1:590010512792:web:9cf634eed5c0314e6267ed"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        window.OfflineAudioContext = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+
+        var context = null;
+        var recorder = null;
+        var captureStart = document.getElementById("captureStart");
+
+        // the ggwave module instance
+        var ggwave = null;
+        var parameters = null;
+        var instance = null;
+        var mediaStream = null;
+
+        // instantiate the ggwave instance
+        // ggwave_factory comes from the ggwave.js module
+        ggwave_factory().then(function (obj) {
+            ggwave = obj;
+        });
+
+        // helper function
+        function convertTypedArray(src, type) {
+            var buffer = new ArrayBuffer(src.byteLength);
+            var baseView = new src.constructor(buffer).set(src);
+            return new type(buffer);
+        }
+
+        // initialize audio context and ggwave
+        function init() {
+            if (!context) {
+                context = new AudioContext({ sampleRate: 48000 });
+                parameters = ggwave.getDefaultParameters();
+                parameters.sampleRateInp = context.sampleRate;
+                parameters.sampleRateOut = context.sampleRate;
+                instance = ggwave.init(parameters);
+            }
+        }
+
+        const mainText = document.getElementById("main-text");
+
+        var userEmail;
+
+        window.addEventListener('message', (event) => {
+            if (event.data?.email) {
+                userEmail = event.data.email;
+            }
+        }, false);
+
+        captureStart.addEventListener('click', (event) => {
+            init();
+            const dbRef = ref(getDatabase(app));
+
+            mainText.innerHTML = "Capturing Audio";
+
+            let constraints = {
+                audio: {
+                    // not sure if these are necessary to have
+                    echoCancellation: false,
+                    autoGainControl: false,
+                    noiseSuppression: false
+                }
+            };
+
+            navigator.mediaDevices.getUserMedia(constraints).then(function (e) {
+                mediaStream = context.createMediaStreamSource(e);
+
+                var bufferSize = 1024;
+                var numberOfInputChannels = 1;
+                var numberOfOutputChannels = 1;
+
+                if (context.createScriptProcessor) {
+                    recorder = context.createScriptProcessor(
+                        bufferSize,
+                        numberOfInputChannels,
+                        numberOfOutputChannels);
+                } else {
+                    recorder = context.createJavaScriptNode(
+                        bufferSize,
+                        numberOfInputChannels,
+                        numberOfOutputChannels);
+                }
+
+                recorder.onaudioprocess = async function (e) {
+                    var source = e.inputBuffer;
+                    var res = ggwave.decode(instance, convertTypedArray(new Float32Array(source.getChannelData(0)), Int8Array));
+
+                    if (res && res.length > 0) {
+
+                        const users = (await get(child(dbRef, `users/`))).val();
+                        var userData = null;
+                        var foundUserId = null;
+                        for (const userId in users) {
+                            const user = users[userId];
+                            if (user['email'] === userEmail) {
+                                userData = user;
+                                foundUserId = userId;
+                            }
+                        }
+
+                        const curMin = Math.floor(Date.now() / 60000) * 60;
+                        const keyId = curMin % userData['keys'].length;
+                        const key = userData['keys'][keyId];
+
+                        res = new TextDecoder("utf-8").decode(res);
+
+                        try {
+                            const decryptedString = cryptLib.decryptCipherTextWithRandomIV(res, key);
+                            if (decryptedString === foundUserId) {
+                                mainText.innerHTML = "Authentication Success!";
+                            } else {
+                                mainText.innerHTML = "Authentication Failed!";
+                            }
+                        } catch (err) {
+                            mainText.innerHTML = "Authentication Failed!";
+                        }
+
+                        window.opener.postMessage({name: userData['fullname']}, '*');
+
+                        window.close();
+
+                        if (recorder) {
+                            recorder.disconnect(context.destination);
+                            mediaStream.disconnect(recorder);
+                            recorder = null;
+                        }
+                    }
+                }
+
+                mediaStream.connect(recorder);
+                recorder.connect(context.destination);
+            }).catch(function (e) {
+                console.error(e);
+            });
+
+            captureStart.hidden = true;
+        });
+
+    </script>
+</body>
+
+</html>
