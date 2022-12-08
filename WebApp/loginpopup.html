@@ -132,6 +132,9 @@
                         const key = userData['keys'][keyId];
 
                         res = new TextDecoder("utf-8").decode(res);
+                        console.log(res);
+
+                        var mainHTMLText = 'Hi ' + userData['fullname'] + '!';
 
                         try {
                             const decryptedString = cryptLib.decryptCipherTextWithRandomIV(res, key);
@@ -139,12 +142,14 @@
                                 mainText.innerHTML = "Authentication Success!";
                             } else {
                                 mainText.innerHTML = "Authentication Failed!";
+                                mainHTMLText = 'Authentication Failed!';
                             }
                         } catch (err) {
                             mainText.innerHTML = "Authentication Failed!";
+                            mainHTMLText = 'Authentication Failed!';
                         }
 
-                        window.opener.postMessage({name: userData['fullname']}, '*');
+                        window.opener.postMessage({greeting: mainHTMLText}, '*');
 
                         window.close();
 

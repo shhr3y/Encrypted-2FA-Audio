@@ -11,11 +11,11 @@
 
 <body>
     <div class="wrapper" id="main-div">
-        <form class="form-signin">
+        <form class="form-signin" id="login-form" action="javascript:void(0);">
             <h2 class="form-signin-heading">Please login</h2>
             <input type="text" value="shrey@gmail.com" class="form-control" name="email" id="user-email"
                 placeholder="Email Address" required="" autofocus="" />
-            <input type="password" class="form-control" name="password" placeholder="Password" required="" />
+            <input type="password" class="form-control" name="password" placeholder="Password" required/>
             <button class="btn btn-lg btn-primary btn-block" id="login-button" type="submit">Login</button>
         </form>
     </div>
@@ -63,7 +63,7 @@
             ggwave = obj;
         });
 
-        var captureStart = document.getElementById("login-button");
+        var captureStart = document.getElementById("login-form");
 
         // helper function
         function convertTypedArray(src, type) {
@@ -84,7 +84,7 @@
             }
         }
 
-        captureStart.addEventListener("click", async function () {
+        captureStart.addEventListener("submit", async function () {
             const params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=300,height=300`;
             const newWindow = window.open('loginpopup.html', 'newWindow', params);
             setTimeout(() => { newWindow.postMessage({ email: document.getElementById('user-email').value }, '*'); }, 500)
@@ -92,13 +92,12 @@
         });
 
         window.addEventListener('message', (event) => {
-            var name;
-            if (event.data?.name) {
-                name = event.data.name;
+            var greeting;
+            if (event.data?.greeting) {
+                greeting = event.data.greeting;
             }
-            document.getElementById("main-div").innerHTML = `Hi ${name}!`;
+            document.getElementById("main-div").innerHTML = `${greeting}`;
         }, false);
-
     </script>
 </body>
 
