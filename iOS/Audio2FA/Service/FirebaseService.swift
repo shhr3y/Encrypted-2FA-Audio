@@ -41,6 +41,7 @@ struct FirebaseService {
                         completion(false, error)
                     }else{
                         print("DEBUG: Succesfully registered user and saved in database.")
+                        let _ = AppUser.shared.setDefaultUser(user: User(uid: uid, dictionary: userdata))
                         completion(true, nil)
                     }
                 }
@@ -59,6 +60,7 @@ struct FirebaseService {
                 guard let uid = result?.user.uid else { return }
                 
                 fetchUserData(currentUID: uid) { user in
+                    let _ = AppUser.shared.setDefaultUser(user: user)
                     completion(true, user, nil)
                 }
             }
@@ -66,13 +68,22 @@ struct FirebaseService {
     }
     
     func fetchUserData(currentUID: String, completion: @escaping(User) -> Void) {
-        print("DEBUG: fetching user data!")
-        DB_REF_USERS.child(currentUID).observeSingleEvent(of: .value, with: { snapshot in
-            guard let dictionary = snapshot.value as? [String: Any] else { return }
-            
-            let user = User(uid: currentUID, dictionary: dictionary)
-            completion(user)
-        })
+        print("DEBUG: fetching user data!: \(Reachability.isConnectedToNetwork())")
+        print("DEBUG: fetching user data \(currentUID) \(AppUser.shared.getDefaultUser()?.uid): \(currentUID == AppUser.shared.getDefaultUser()?.uid)")
+        
+        if currentUID == AppUser.shared.getDefaultUser()?.uid && !Reachability.isConnectedToNetwork() {
+            print("DEBUG:- using offline data")
+            guard let currentUser = AppUser.shared.getDefaultUser() else { return }
+            completion(currentUser)
+        } else {
+            print("DEBUG:- using online data")
+            DB_REF_USERS.child(currentUID).observeSingleEvent(of: .value, with: { snapshot in
+                guard let dictionary = snapshot.value as? [String: Any] else { return }
+                
+                let user = User(uid: currentUID, dictionary: dictionary)
+                completion(user)
+            })
+        }
     }
     
     func getCurrentUID() -> String? {
@@ -84,9 +95,11 @@ struct FirebaseService {
         do {
             try Auth.auth().signOut()
             DispatchQueue.main.async {
+                AppUser.shared.removeDefaultUser()
                 completion(nil)
             }
         } catch {
+            AppUser.shared.removeDefaultUser()
             completion(error)
         }
     }

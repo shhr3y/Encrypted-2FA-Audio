@@ -17,6 +17,7 @@
 		350C554E29090FD600E671E5 /* TextToAudioSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 350C554D29090FD600E671E5 /* TextToAudioSDK.m */; };
 		350C55522909119200E671E5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C55512909119200E671E5 /* Extensions.swift */; };
 		350C555529091B2000E671E5 /* ggwave in Frameworks */ = {isa = PBXBuildFile; productRef = 350C555429091B2000E671E5 /* ggwave */; };
+		351A35B029417AAC000CEDEA /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A35AF29417AAC000CEDEA /* AppUser.swift */; };
 		35A232A7292C22BB00D241C2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232A6292C22BB00D241C2 /* FirebaseAuth */; };
 		35A232A9292C22BB00D241C2 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232A8292C22BB00D241C2 /* FirebaseDatabaseSwift */; };
 		35A232AB292C22BB00D241C2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232AA292C22BB00D241C2 /* FirebaseMessaging */; };
@@ -32,6 +33,7 @@
 		35A232D1292D86D400D241C2 /* AESCryptable in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232D0292D86D400D241C2 /* AESCryptable */; };
 		35A232D4292D9C8100D241C2 /* RNCryptor in Frameworks */ = {isa = PBXBuildFile; productRef = 35A232D3292D9C8100D241C2 /* RNCryptor */; };
 		35B39E39292EEE0F0017D4E6 /* CryptLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B39E38292EEE0F0017D4E6 /* CryptLib.m */; };
+		35B39E3B29303BCB0017D4E6 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B39E3A29303BCB0017D4E6 /* CircularProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,7 @@
 		350C554F2909101300E671E5 /* TextToAudioSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextToAudioSDK.h; sourceTree = "<group>"; };
 		350C55502909104100E671E5 /* Audio2FA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Audio2FA-Bridging-Header.h"; sourceTree = "<group>"; };
 		350C55512909119200E671E5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		351A35AF29417AAC000CEDEA /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		35A232AE292C22F600D241C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		35A232B0292C236400D241C2 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		35A232B2292C245E00D241C2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 		35A232CA292D7D1A00D241C2 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		35B39E37292EEDF80017D4E6 /* CryptLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryptLib.h; sourceTree = "<group>"; };
 		35B39E38292EEE0F0017D4E6 /* CryptLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryptLib.m; sourceTree = "<group>"; };
+		35B39E3A29303BCB0017D4E6 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +104,10 @@
 				350C551C29090B1E00E671E5 /* AppDelegate.swift */,
 				350C551E29090B1F00E671E5 /* SceneDelegate.swift */,
 				35A232CA292D7D1A00D241C2 /* Crypto.swift */,
+				35A232BA292C2FBC00D241C2 /* Model */,
 				35A232C9292D7D0600D241C2 /* View */,
 				35A232B8292C2FA100D241C2 /* Controller */,
 				35A232B9292C2FAF00D241C2 /* Service */,
-				35A232BA292C2FBC00D241C2 /* Model */,
 				350C55512909119200E671E5 /* Extensions.swift */,
 				350C554029090C7000E671E5 /* TextToAudioWrapper.swift */,
 				350C55502909104100E671E5 /* Audio2FA-Bridging-Header.h */,
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				35A232B6292C2DE000D241C2 /* User.swift */,
+				351A35AF29417AAC000CEDEA /* AppUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				35A232C7292D593900D241C2 /* UserInfoHeader.swift */,
+				35B39E3A29303BCB0017D4E6 /* CircularProgressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,11 +257,13 @@
 				350C554129090C7000E671E5 /* TextToAudioWrapper.swift in Sources */,
 				35B39E39292EEE0F0017D4E6 /* CryptLib.m in Sources */,
 				350C55522909119200E671E5 /* Extensions.swift in Sources */,
+				351A35B029417AAC000CEDEA /* AppUser.swift in Sources */,
 				35A232C8292D593900D241C2 /* UserInfoHeader.swift in Sources */,
 				35A232B3292C245E00D241C2 /* LoginController.swift in Sources */,
 				35A232CB292D7D1B00D241C2 /* Crypto.swift in Sources */,
 				350C554E29090FD600E671E5 /* TextToAudioSDK.m in Sources */,
 				35A232B7292C2DE000D241C2 /* User.swift in Sources */,
+				35B39E3B29303BCB0017D4E6 /* CircularProgressView.swift in Sources */,
 				350C551F29090B1F00E671E5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
